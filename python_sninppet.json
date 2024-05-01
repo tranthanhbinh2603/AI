@@ -150,5 +150,21 @@
 		"body": [
 			"${1:array}.sum(axis=${2:type})\n${3:#type 0 is column, type 1 is row}"
 		]
+	},
+	"Create Series in pandas with value and key list": {
+		"prefix": [
+			"pandas_createSeriesWithList"
+		],
+		"body": [
+			"pd.Series(${2:Value List}, ${1:Key List})"
+		]
+	},
+	"Create Series in pandas with dict": {
+		"prefix": [
+			"pandas_createSeriesWithDict"
+		],
+		"body": [
+			"pd.Series(${1:Dict})"
+		]
 	}
 }
