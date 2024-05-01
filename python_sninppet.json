@@ -166,5 +166,29 @@
 		"body": [
 			"pd.Series(${1:Dict})"
 		]
+	},
+	"Create data frames in pandas with list": {
+		"prefix": [
+			"pandas_createDataFramewithList"
+		],
+		"body": [
+			"pd.DataFrame(${1:Data}, ${2:Column name}, ${3:Row name})"
+		]
+	},
+	"Get a block data in pandas": {
+		"prefix": [
+			"pandas_getBlockData"
+		],
+		"body": [
+			"${1:Data Frame}.loc[[${2:Row list}], [${3:Column list}]]"
+		]
+	},
+	"Delete row/column in pandas": {
+		"prefix": [
+			"pandas_delete"
+		],
+		"body": [
+			"${1:Data Frame}.drop(${2:Column/row name}, axis=${3:1}, inplace=${4:True})\n${5:# axis: 1 là cột, 0 là hàng\n#inplace: True là xoá luôn, False là xoá tạm thời}"
+		]
 	}
 }
