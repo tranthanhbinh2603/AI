@@ -15,12 +15,140 @@
 			"np.array(${1:list_to_convert})"
 		]
 	},
-	"Import Create Continuous Array": {
+	"Create Continuous Array": {
 		"prefix": [
 			"jupyter_createArray_continuous"
 		],
 		"body": [
 			"np.arange(${1:start}, ${2:stop}, ${3:step})"
+		]
+	},
+	"Create Zero Array": {
+		"prefix": [
+			"jupyter_createArray_zero"
+		],
+		"body": [
+			"np.zeros(${1:number_elements})"
+		]
+	},
+	"Create One Array": {
+		"prefix": [
+			"jupyter_createArray_one"
+		],
+		"body": [
+			"np.ones(${1:number_elements})"
+		]
+	},
+	"Create Array with Same Number": {
+		"prefix": [
+			"jupyter_createArray_same"
+		],
+		"body": [
+			"np.full(${1:number_elements}, ${2:value})"
+		]
+	},
+	"Create Equally spaced array": {
+		"prefix": [
+			"jupyter_createArray_linspace"
+		],
+		"body": [
+			"np.linspace(${1:start}, ${2:end}, ${3:number_elements})"
+		]
+	},
+	"Create Determinant array": {
+		"prefix": [
+			"jupyter_createArray_eye"
+		],
+		"body": [
+			"np.eye(${1:size})"
+		]
+	},
+	"Create random array from 0 to 1": {
+		"prefix": [
+			"jupyter_createArray_random10"
+		],
+		"body": [
+			"np.random.rand(${1:size})"
+		]
+	},
+	"Create Random array with Standard Normal Distribution": {
+		"prefix": [
+			"jupyter_createArray_randomDistribution"
+		],
+		"body": [
+			"np.random.randn(${1:size})"
+		]
+	},
+	"Create random array from a to b": {
+		"prefix": [
+			"jupyter_createArray_randomAToB"
+		],
+		"body": [
+			"np.random.randint(${1:start}, ${2:end}, ${3:size})"
+		]
+	},
+	"Change Array Size to axb": {
+		"prefix": [
+			"jupyter_changeSize"
+		],
+		"body": [
+			"${1:array}.reshape(${1:row}, ${2:column})"
+		]
+	},
+	"Check Array Size": {
+		"prefix": [
+			"jupyter_checkSize"
+		],
+		"body": [
+			"${1:array}.shape"
+		]
+	},
+	"Find Array Max": {
+		"prefix": [
+			"jupyter_ufunc_maxArray"
+		],
+		"body": [
+			"${1:array}.max()"
+		]
+	},
+	"Find Array Min": {
+		"prefix": [
+			"jupyter_ufunc_minArray"
+		],
+		"body": [
+			"${1:array}.min()"
+		]
+	},
+	"Find Array Max Position": {
+		"prefix": [
+			"jupyter_ufunc_maxPositionArray"
+		],
+		"body": [
+			"${1:array}.argmax()"
+		]
+	},
+	"Find Array Min Position": {
+		"prefix": [
+			"jupyter_ufunc_minPositionArray"
+		],
+		"body": [
+			"${1:array}.argmin()"
+		]
+	},
+	"Check type array": {
+		"prefix": [
+			"jupyter_ufunc_checkType"
+		],
+		"body": [
+			"${1:array}.dtype"
+		]
+	},
+	"Sum array by axis": {
+		"prefix": [
+			"jupyter_ufunc_sumAxis"
+		],
+		"body": [
+			"${1:array}.sum(axis=${2:type})\n${3:#type 0 is column, type 1 is row}"
 		]
 	}
 }
