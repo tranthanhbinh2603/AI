@@ -1,0 +1,26 @@
+{
+	"Display Multiple Line in Jupyter": {
+		"prefix": [
+			"jupyter_displayMultLine"
+		],
+		"body": [
+			"from IPython.core.interactiveshell import InteractiveShell\nInteractiveShell.ast_node_interactivity = \"all\""
+		]
+	},
+	"Import array from list": {
+		"prefix": [
+			"jupyter_createArray_fromList"
+		],
+		"body": [
+			"np.array(${1:list_to_convert})"
+		]
+	},
+	"Import Create Continuous Array": {
+		"prefix": [
+			"jupyter_createArray_continuous"
+		],
+		"body": [
+			"np.arange(${1:start}, ${2:stop}, ${3:step})"
+		]
+	}
+}
