@@ -172,7 +172,7 @@
 			"pandas_createDataFramewithList"
 		],
 		"body": [
-			"pd.DataFrame(${1:Data}, ${2:Column name}, ${3:Row name})"
+			"pd.DataFrame(${1:Data}, ${2:Row name}, ${3:Column name})"
 		]
 	},
 	"Get a block data in pandas": {
