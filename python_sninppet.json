@@ -172,7 +172,7 @@
 			"pandas_createDataFramewithList"
 		],
 		"body": [
-			"pd.DataFrame(${1:Data}, ${2:Row name}, ${3:Column name})"
+			"pd.DataFrame(${1:Data}, ${2:Column name}, ${3:Row name})"
 		]
 	},
 	"Get a block data in pandas": {
@@ -213,6 +213,54 @@
 		],
 		"body": [
 			"${1:Data Frame}.set_index(${2:Column}, inplace=${3:False})"
+		]
+	},
+	"Create DataFrame have group": {
+		"prefix": [
+			"pandas_createDataFramehaveGroup"
+		],
+		"body": [
+			"${1:dataSource} = ${2:Data Source Define}\n${3:outsideLevelRow} = ${4:List Outside row (Ex: ['a', 'a', 'b', 'b'])}\n${5:insideLevelRow} = ${6:List Inside row (Ex: ['a1', 'a2', 'b1', 'b2'])}\n${7:column_index} = ${8:Column Index (normal)}\npd.DataFrame(${1:dataSource},  pd.MultiIndex.from_tuples(list(zip(${3:outsideLevelRow}, ${5:insideLevelRow}))), ${7:column_index})"
+		]
+	},
+	"Set name for layer in group": {
+		"prefix": [
+			"pandas_setNameLayerGroup"
+		],
+		"body": [
+			"{1:Data Frame}.index.names = ${2:List group}"
+		]
+	},
+	"Get data by xs": {
+		"prefix": [
+			"pandas_getDataByXS"
+		],
+		"body": [
+			"${1:Data Frame}.xs(${2:Name to get}, level=${3:index or name layer}, drop_level=${4:True})\n#${5:drop_level là true thì hiển thị cột lọc, false là không}"
+		]
+	},
+	"Check data has nan": {
+		"prefix": [
+			"pandas_checkNullData"
+		],
+		"body": [
+			"${1:Data Frame}.dropna(axis=${2:column or row}) ${3:#0 is row, 1 is column}"
+		]
+	},
+	"Check data row/column has at least not null": {
+		"prefix": [
+			"pandas_checkNullDataAtLeast"
+		],
+		"body": [
+			"${1:Data Frame}.dropna(axis=${2:column or row}, thresh=${3:Many at least do to you want to filter}) ${4:#0 is row, 1 is column\n#thresh: Ví dụ cần dòng hàng đó có 2 số có nghĩa, gõ số 2}"
+		]
+	},
+	"Fill nan data": {
+		"prefix": [
+			"pandas_fillNanData"
+		],
+		"body": [
+			"${1:Data Frame}.fillna(value=${2:Value to fill})"
 		]
 	}
 }
