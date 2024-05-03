@@ -4,7 +4,7 @@
 			"initEnvironment"
 		],
 		"body": [
-			"import numpy as np\nimport pandas as pd\nfrom IPython.core.interactiveshell import InteractiveShell\nInteractiveShell.ast_node_interactivity = \"all\""
+			"import numpy as np\nimport pandas as pd\n\nfrom IPython.core.interactiveshell import InteractiveShell\nInteractiveShell.ast_node_interactivity = \"all\""
 		]
 	},
 	"Import array from list": {
@@ -325,6 +325,46 @@
 		],
 		"body": [
 			"${1:Data Frame}.pivot_table(values=${2:Data}, index=${3:Column})"
+		]
+	},
+	"Read CSV file": {
+		"prefix": [
+			"pandas_readCSV"
+		],
+		"body": [
+			"pd.read_csv(${1:name of CSV file})"
+		]
+	},
+	"Write to CSV file": {
+		"prefix": [
+			"pandas_writeCSV"
+		],
+		"body": [
+			"${1:Data Frame}.to_csv(${2:name of CSV file}, index=${3:False}) ${4:True if you want to write index}"
+		]
+	},
+	"Read Excel file": {
+		"prefix": [
+			"pandas_readExcel"
+		],
+		"body": [
+			"pd.read_excel(${1:name of Excel file}, sheet_name=${2:Sheet to get data})"
+		]
+	},
+	"Write Excel file": {
+		"prefix": [
+			"pandas_writeExcel"
+		],
+		"body": [
+			"${1:Data Frame}.to_excel(${2:name of Excel file}, index=${3:False}, sheet_name=${4:Name of sheet result}) ${5:True if you want to write index}"
+		]
+	},
+	"Read all table in link": {
+		"prefix": [
+			"pandas_readHTML"
+		],
+		"body": [
+			"pd.read_html(${2:link})"
 		]
 	}
 }
