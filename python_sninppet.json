@@ -1,10 +1,10 @@
 {
-	"Display Multiple Line in Jupyter": {
+	"Init environment": {
 		"prefix": [
-			"jupyter_displayMultLine"
+			"initEnvironment"
 		],
 		"body": [
-			"from IPython.core.interactiveshell import InteractiveShell\nInteractiveShell.ast_node_interactivity = \"all\""
+			"import numpy as np\nimport pandas as pd\nfrom IPython.core.interactiveshell import InteractiveShell\nInteractiveShell.ast_node_interactivity = \"all\""
 		]
 	},
 	"Import array from list": {
@@ -277,6 +277,54 @@
 		],
 		"body": [
 			"${1:Data Frame}.groupby(${2:Key to group}).describe()${3:.transpose()}"
+		]
+	},
+	"Filter Unique": {
+		"prefix": [
+			"pandas_filterUnique"
+		],
+		"body": [
+			"${1:Data Frame}[${2:Column to filter}].unique()"
+		]
+	},
+	"Count Unique": {
+		"prefix": [
+			"pandas_countUnique"
+		],
+		"body": [
+			"${1:Data Frame}[${2:Column to count}].nunique()"
+		]
+	},
+	"Count each value": {
+		"prefix": [
+			"pandas_countValue"
+		],
+		"body": [
+			"${1:Data Frame}[${2:Column to filter}].value_counts()"
+		]
+	},
+	"Apply function": {
+		"prefix": [
+			"pandas_applyFunc"
+		],
+		"body": [
+			"${1:Data Frame}[${2:Column to apply}].apply(${3:Function})"
+		]
+	},
+	"Sort column": {
+		"prefix": [
+			"pandas_sortColumn"
+		],
+		"body": [
+			"${1:Data Frame}.sort_values(${2:Column name})"
+		]
+	},
+	"Pivot table": {
+		"prefix": [
+			"pandas_sortColumn"
+		],
+		"body": [
+			"${1:Data Frame}.pivot_table(values=${2:Data}, index=${3:Column})"
 		]
 	}
 }
