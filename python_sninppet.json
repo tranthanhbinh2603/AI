@@ -262,5 +262,21 @@
 		"body": [
 			"${1:Data Frame}.fillna(value=${2:Value to fill})"
 		]
+	},
+	"Group by DataFrame and do something": {
+		"prefix": [
+			"pandas_groupBy"
+		],
+		"body": [
+			"${1:Data Frame}.groupby(${2:Key to group}).${3:sum()}"
+		]
+	},
+	"Describe column": {
+		"prefix": [
+			"pandas_describeColumn"
+		],
+		"body": [
+			"${1:Data Frame}.groupby(${2:Key to group}).describe()${3:.transpose()}"
+		]
 	}
 }
