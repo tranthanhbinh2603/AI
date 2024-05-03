@@ -4,7 +4,7 @@
 			"initEnvironment"
 		],
 		"body": [
-			"import numpy as np\nimport pandas as pd\n\nfrom IPython.core.interactiveshell import InteractiveShell\nInteractiveShell.ast_node_interactivity = \"all\""
+			"import matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\n\nfrom IPython.core.interactiveshell import InteractiveShell\nInteractiveShell.ast_node_interactivity = \"all\"\n%matplotlib inline"
 		]
 	},
 	"Import array from list": {
