@@ -4,7 +4,7 @@
 			"initEnvironment"
 		],
 		"body": [
-			"import matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\n\nfrom IPython.core.interactiveshell import InteractiveShell\nInteractiveShell.ast_node_interactivity = \"all\"\n%matplotlib inline"
+			"import matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\n\n${1:from IPython.core.interactiveshell import InteractiveShell\nInteractiveShell.ast_node_interactivity = \"all\"}\n%matplotlib inline"
 		]
 	},
 	"Import array from list": {
@@ -373,6 +373,54 @@
 		],
 		"body": [
 			"${21:# Init chart}\nfig = plt.figure(figsize=(${1:Dài},${2:Cao}), dpi=${3:DPI})\n${4:#DPI: 100 dùng để xem, 300 dùng trong trình chiếu và in ấn}\nax = fig.add_axes([${5:Start left},${6:Start bottom},${7:Dài},${8:Cao}])\n\n${21:#Draw chart}\nax.plot(${9:x}, ${10:y}, label=${11:label}, color=${12:color}, alpha=${13:Độ mờ})\n\n${21:# Custom chart}\nax.set_title(${14:Title Chart});\nax.set_xlabel(${15:X axis label})\nax.set_ylabel(${16:Y axis label});\nax.set_xlim([${17:x start}, ${18:x end}])\nax.set_ylim([${19:y start}, ${20:y end}])\nax.legend(loc=0)"
+		]
+	},
+	"Vẽ historical plot có cả cột + đường": {
+		"prefix": [
+			"maplotlib_historicalFull"
+		],
+		"body": [
+			"sns.histplot(${1:Data Column}, bins=${2:Number of division}, kde=True)"
+		]
+	},
+	"Vẽ column chart": {
+		"prefix": [
+			"maplotlib_columnChart"
+		],
+		"body": [
+			"sns.histplot(${1:Data Column}, bins=${2:Number of division}, kde=False)"
+		]
+	},
+	"Vẽ historical plot chỉ có đường": {
+		"prefix": [
+			"maplotlib_historicalColumn"
+		],
+		"body": [
+			"sns.kdeplot(${1:Data Column})"
+		]
+	},
+	"Vẽ biểu đồ KDE": {
+		"prefix": [
+			"maplotlib_KDE"
+		],
+		"body": [
+			"sns.kdeplot(${1:Data Column})\nsns.rugplot(${1:Data Column})"
+		]
+	},
+	"Vẽ biểu đồ Scatter": {
+		"prefix": [
+			"maplotlib_scatter"
+		],
+		"body": [
+			"sns.jointplot(x=${1:Column 1},y=${2:Column 2},data=${3: Data List},kind=${4: type})${5: scatter là chỉ điểm thuần, reg là thêm đường thẳng linear expression}"
+		]
+	},
+	"Vẽ biểu đồ tương quan giữa các đối tượng": {
+		"prefix": [
+			"maplotlib_joinPlot"
+		],
+		"body": [
+			"sns.jointplot(${1: Data List},hue=${2: Column to center})"
 		]
 	}
 }
