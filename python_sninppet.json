@@ -9,7 +9,7 @@
 	},
 	"Import array from list": {
 		"prefix": [
-			"jupyter_createArray_fromList"
+			"numpy_createArray_fromList"
 		],
 		"body": [
 			"np.array(${1:list_to_convert})"
@@ -17,7 +17,7 @@
 	},
 	"Create Continuous Array": {
 		"prefix": [
-			"jupyter_createArray_continuous"
+			"numpy_createArray_continuous"
 		],
 		"body": [
 			"np.arange(${1:start}, ${2:stop}, ${3:step})"
@@ -25,7 +25,7 @@
 	},
 	"Create Zero Array": {
 		"prefix": [
-			"jupyter_createArray_zero"
+			"numpy_createArray_zero"
 		],
 		"body": [
 			"np.zeros(${1:number_elements})"
@@ -33,7 +33,7 @@
 	},
 	"Create One Array": {
 		"prefix": [
-			"jupyter_createArray_one"
+			"numpy_createArray_one"
 		],
 		"body": [
 			"np.ones(${1:number_elements})"
@@ -41,7 +41,7 @@
 	},
 	"Create Array with Same Number": {
 		"prefix": [
-			"jupyter_createArray_same"
+			"numpy_createArray_same"
 		],
 		"body": [
 			"np.full(${1:number_elements}, ${2:value})"
@@ -49,7 +49,7 @@
 	},
 	"Create Equally spaced array": {
 		"prefix": [
-			"jupyter_createArray_linspace"
+			"numpy_createArray_linspace"
 		],
 		"body": [
 			"np.linspace(${1:start}, ${2:end}, ${3:number_elements})"
@@ -57,7 +57,7 @@
 	},
 	"Create Determinant array": {
 		"prefix": [
-			"jupyter_createArray_eye"
+			"numpy_createArray_eye"
 		],
 		"body": [
 			"np.eye(${1:size})"
@@ -65,7 +65,7 @@
 	},
 	"Create random array from 0 to 1": {
 		"prefix": [
-			"jupyter_createArray_random10"
+			"numpy_createArray_random10"
 		],
 		"body": [
 			"np.random.rand(${1:size})"
@@ -73,7 +73,7 @@
 	},
 	"Create Random array with Standard Normal Distribution": {
 		"prefix": [
-			"jupyter_createArray_randomDistribution"
+			"numpy_createArray_randomDistribution"
 		],
 		"body": [
 			"np.random.randn(${1:size})"
@@ -81,7 +81,7 @@
 	},
 	"Create random array from a to b": {
 		"prefix": [
-			"jupyter_createArray_randomAToB"
+			"numpy_createArray_randomAToB"
 		],
 		"body": [
 			"np.random.randint(${1:start}, ${2:end}, ${3:size})"
@@ -89,7 +89,7 @@
 	},
 	"Change Array Size to axb": {
 		"prefix": [
-			"jupyter_changeSize"
+			"numpy_changeSize"
 		],
 		"body": [
 			"${1:array}.reshape(${1:row}, ${2:column})"
@@ -97,7 +97,7 @@
 	},
 	"Check Array Size": {
 		"prefix": [
-			"jupyter_checkSize"
+			"numpy_checkSize"
 		],
 		"body": [
 			"${1:array}.shape"
@@ -105,7 +105,7 @@
 	},
 	"Find Array Max": {
 		"prefix": [
-			"jupyter_ufunc_maxArray"
+			"numpy_ufunc_maxArray"
 		],
 		"body": [
 			"${1:array}.max()"
@@ -113,7 +113,7 @@
 	},
 	"Find Array Min": {
 		"prefix": [
-			"jupyter_ufunc_minArray"
+			"numpy_ufunc_minArray"
 		],
 		"body": [
 			"${1:array}.min()"
@@ -121,7 +121,7 @@
 	},
 	"Find Array Max Position": {
 		"prefix": [
-			"jupyter_ufunc_maxPositionArray"
+			"numpy_ufunc_maxPositionArray"
 		],
 		"body": [
 			"${1:array}.argmax()"
@@ -129,7 +129,7 @@
 	},
 	"Find Array Min Position": {
 		"prefix": [
-			"jupyter_ufunc_minPositionArray"
+			"numpy_ufunc_minPositionArray"
 		],
 		"body": [
 			"${1:array}.argmin()"
@@ -137,7 +137,7 @@
 	},
 	"Check type array": {
 		"prefix": [
-			"jupyter_ufunc_checkType"
+			"numpy_ufunc_checkType"
 		],
 		"body": [
 			"${1:array}.dtype"
@@ -145,7 +145,7 @@
 	},
 	"Sum array by axis": {
 		"prefix": [
-			"jupyter_ufunc_sumAxis"
+			"numpy_ufunc_sumAxis"
 		],
 		"body": [
 			"${1:array}.sum(axis=${2:type})\n${3:#type 0 is column, type 1 is row}"
@@ -365,6 +365,14 @@
 		],
 		"body": [
 			"pd.read_html(${2:link})"
+		]
+	},
+	"Create chart in maplotlib": {
+		"prefix": [
+			"maplotlib_createChart"
+		],
+		"body": [
+			"${21:# Init chart}\nfig = plt.figure(figsize=(${1:Dài},${2:Cao}), dpi=${3:DPI})\n${4:#DPI: 100 dùng để xem, 300 dùng trong trình chiếu và in ấn}\nax = fig.add_axes([${5:Start left},${6:Start bottom},${7:Dài},${8:Cao}])\n\n${21:#Draw chart}\nax.plot(${9:x}, ${10:y}, label=${11:label}, color=${12:color}, alpha=${13:Độ mờ})\n\n${21:# Custom chart}\nax.set_title(${14:Title Chart});\nax.set_xlabel(${15:X axis label})\nax.set_ylabel(${16:Y axis label});\nax.set_xlim([${17:x start}, ${18:x end}])\nax.set_ylim([${19:y start}, ${20:y end}])\nax.legend(loc=0)"
 		]
 	}
 }
