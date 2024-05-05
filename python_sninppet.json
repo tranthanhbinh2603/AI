@@ -422,5 +422,45 @@
 		"body": [
 			"sns.jointplot(${1: Data List},hue=${2: Column to center})"
 		]
+	},
+	"Vẽ biểu đồ heatmap": {
+		"prefix": [
+			"maplotlib_heatmap"
+		],
+		"body": [
+			"sns.heatmap(${1: Data Full},cmap='coolwarm',${2: annot=True},linewidths=1)"
+		]
+	},
+	"Vẽ biểu đồ cột": {
+		"prefix": [
+			"maplotlib_column"
+		],
+		"body": [
+			"sns.barplot(x=${1: Column 1},y=${2: Column 2},data=${3: Table},estimator=${4: Function})"
+		]
+	},
+	"Vẽ biểu đồ cột đếm": {
+		"prefix": [
+			"maplotlib_countColumn"
+		],
+		"body": [
+			"sns.countplot(x=${1: Column}, data=${2: Table})"
+		]
+	},
+	"Vẽ biểu đồ boxplot": {
+		"prefix": [
+			"maplotlib_boxplot"
+		],
+		"body": [
+			"sns.boxplot(x=${1: Column 1}, y=${2: Column 2}, data=${3: Table}, palette='rainbow')"
+		]
+	},
+	"Vẽ biểu đồ tuỳ chỉnh grid": {
+		"prefix": [
+			"maplotlib_gridCustom"
+		],
+		"body": [
+			"${1: g} = sns.FacetGrid(${2: Table}, col=${3: Column}, row=${4: Row})\n${1: g} = ${1: g}.map(plt.scatter, ${5: Data x}, ${6: Data Y})"
+		]
 	}
 }
