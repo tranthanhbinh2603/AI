@@ -510,5 +510,29 @@
 		"body": [
 			"from sklearn.preprocessing import StandardScaler/nsc = StandardScaler()/nX_train = sc.fit_transform(X_train)/nX_test = sc.transform(X_test)"
 		]
+	},
+	"Create simple linear model and apply for the test": {
+		"prefix": [
+			"ML_SimLine_Create"
+		],
+		"body": [
+			"# create simple linear model/nfrom sklearn.linear_model import LinearRegression/nregressor = LinearRegression()/nregressor.fit(X_train, y_train)/n# apply for the test/ny = regressor.predict(X_test)"
+		]
+	}, 
+	"Draw simple line to test": {
+		"prefix": [
+			"ML_SimLine_Test"
+		],
+		"body": [
+			"import matplotlib.pyplot as plt/nplt.scatter(X_test, y_test, color = 'red')/nplt.plot(X_train, regressor.predict(X_train), color = 'blue')/nplt.xlabel(${1:'X (input)'})/nplt.ylabel(${2:'Y (output - result)'})"
+		]
+	}
+	"Get simple line function": {
+		"prefix": [
+			"ML_SimLine_GetFunction"
+		],
+		"body": [
+			"coefficients = regressor.coef_/nintercept = regressor.intercept_/nprint("y =", intercept, "+", " + ".join([f"{coef} * x{i}" for i, coef in enumerate(coefficients)]))"
+		]
 	}
 }
