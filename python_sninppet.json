@@ -468,7 +468,10 @@
 			"ML_Pre_Step1ImportandXY"
 		],
 		"body": [
-			"import pandas as pd/ndataset = pd.read_csv(${1:Data file name})/nX = dataset.iloc[:, :-1].values #dataset.drop('', axis=1)/ny = dataset.iloc[:, -1].values #dataset['']"
+			"import pandas as pd
+dataset = pd.read_csv(${1:Data file name})
+X = dataset.iloc[:, :-1].values #dataset.drop('', axis=1)
+y = dataset.iloc[:, -1].values #dataset['']"
 		]
 	},
 	"Fill missing value": {
@@ -476,7 +479,11 @@
 			"ML_Pre_Step2MissingValue"
 		],
 		"body": [
-			"import numpy as np/nfrom sklearn.impute import SimpleImputer/nimputer = SimpleImputer(missing_values=${1:np.nan}, strategy=${2:'mean'})/nimputer.fit(X[:, ${3:1:3}])/nX[:, ${3:1:3}] = imputer.transform(X[:, ${3:1:3}])"
+			"import numpy as np
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values=${1:np.nan}, strategy=${2:'mean'})
+imputer.fit(X[:, ${3:1:3}])
+X[:, ${3:1:3}] = imputer.transform(X[:, ${3:1:3}])"
 		]
 	},
 	"Convert string more two options": {
@@ -484,7 +491,11 @@
 			"ML_Pre_Step3ConvertMore2Options"
 		],
 		"body": [
-			"from sklearn.compose import ColumnTransformer/nfrom sklearn.preprocessing import OneHotEncoder/ncategorical_features = [${1:List column to convert}]/nct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), categorical_features)], remainder='passthrough')/n${2:X} = np.array(ct.fit_transform(${2:X}))"
+			"from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+categorical_features = [${1:List column to convert}]
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), categorical_features)], remainder='passthrough')
+${2:X} = np.array(ct.fit_transform(${2:X}))"
 		]
 	},
 	"Convert string only two options": {
@@ -492,7 +503,9 @@
 			"ML_Pre_Step3ConvertMore2Options"
 		],
 		"body": [
-			"from sklearn.preprocessing import LabelEncoder/nle = LabelEncoder()/ny = le.fit_transform(${1:Column to convert})"
+			"from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+y = le.fit_transform(${1:Column to convert})"
 		]
 	},
 	"Split Train and Test dataset": {
@@ -500,7 +513,8 @@
 			"ML_Pre_Step4SplitTrainandTest"
 		],
 		"body": [
-			"from sklearn.model_selection import train_test_split/nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)"
+			"from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)"
 		]
 	},
 	"Feature Scaling": {
@@ -508,7 +522,10 @@
 			"ML_Pre_Step5Scaling"
 		],
 		"body": [
-			"from sklearn.preprocessing import StandardScaler/nsc = StandardScaler()/nX_train = sc.fit_transform(X_train)/nX_test = sc.transform(X_test)"
+			"from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)"
 		]
 	},
 	"Create simple linear model and apply for the test": {
@@ -516,7 +533,12 @@
 			"ML_SimLine_Create"
 		],
 		"body": [
-			"# create simple linear model/nfrom sklearn.linear_model import LinearRegression/nregressor = LinearRegression()/nregressor.fit(X_train, y_train)/n# apply for the test/ny = regressor.predict(X_test)"
+			"# create simple linear model
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+regressor.fit(X_train, y_train)
+# apply for the test
+y = regressor.predict(X_test)"
 		]
 	}, 
 	"Draw simple line to test": {
@@ -524,7 +546,11 @@
 			"ML_SimLine_Test"
 		],
 		"body": [
-			"import matplotlib.pyplot as plt/nplt.scatter(X_test, y_test, color = 'red')/nplt.plot(X_train, regressor.predict(X_train), color = 'blue')/nplt.xlabel(${1:'X (input)'})/nplt.ylabel(${2:'Y (output - result)'})"
+			"import matplotlib.pyplot as plt
+plt.scatter(X_test, y_test, color = 'red')
+plt.plot(X_train, regressor.predict(X_train), color = 'blue')
+plt.xlabel(${1:'X (input)'})
+plt.ylabel(${2:'Y (output - result)'})"
 		]
 	}
 	"Get simple line function": {
@@ -532,7 +558,9 @@
 			"ML_SimLine_GetFunction"
 		],
 		"body": [
-			"coefficients = regressor.coef_/nintercept = regressor.intercept_/nprint("y =", intercept, "+", " + ".join([f"{coef} * x{i}" for i, coef in enumerate(coefficients)]))"
+			"coefficients = regressor.coef_
+intercept = regressor.intercept_
+print("y =", intercept, "+", " + ".join([f"{coef} * x{i}" for i, coef in enumerate(coefficients)]))"
 		]
 	}
 }
